@@ -1,0 +1,14 @@
+{
+  "name": "tom-bot",
+  "version": "0.0.1",
+  "description": "Bot being created for Tomas",
+  "author": "Chris Welch",
+  "main": "app.js",
+  "scripts": {
+    "prestart": "npm i -g pm2",
+    "start": "pm2 start app.js --name TomBot"
+  },
+  "dependencies": {
+    "komada": "github:dirigeants/komada#indev"
+  }
+}
