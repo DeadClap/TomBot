@@ -1,4 +1,6 @@
 exports.run = (client, guild) => {
+    client.settingGateway.create(guild.id)
+    client.user.setGame(`with ${client.users.size} users on ${client.guilds.size} servers`)
     function usersToBots (members) {
         var u = 0
         var b = 0

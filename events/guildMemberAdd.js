@@ -1,6 +1,6 @@
 exports.run = (client, member) => {
     var guild = member.guild
-    
+    client.user.setGame(`with ${client.users.size} users on ${client.guilds.size} servers`)
     if (!client.settingGateway.get(guild.id).joinLeaveLog) return
 
 
