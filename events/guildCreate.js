@@ -1,6 +1,6 @@
 exports.run = (client, guild) => {
     client.settingGateway.create(guild.id)
-    client.user.setGame(`with ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users on ${client.guilds.size} servers`)
+    // client.user.setGame(`with ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users on ${client.guilds.size} servers`)
     function usersToBots (members) {
         var u = 0
         var b = 0
