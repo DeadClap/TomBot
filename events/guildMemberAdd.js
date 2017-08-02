@@ -15,9 +15,9 @@ exports.run = (client, member) => {
     if (client.settingGateway.get(guild.id).dmWelcomeEnabled === true) {
         var dmWelcomeMessage = client.settingGateway.get(guild.id).dmWelcomeMsg
         dmWelcomeMessage = dmWelcomeMessage.replace(/\%s/g, guild.name)
-        dmWelcomeMessage = dmWelcomeMessage.replace(/\%u/g, member.user.username)
         dmWelcomeMessage = dmWelcomeMessage.replace(/\%um/g, member)
-        member.send(dmWelcomeMessage).catch(err => {
+        dmWelcomeMessage = dmWelcomeMessage.replace(/\%u/g, member.user.username)
+                member.send(dmWelcomeMessage).catch(err => {
             console.error(err)
         })
     }
