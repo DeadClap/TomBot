@@ -7,9 +7,10 @@ exports.run = (client, member) => {
 
     if (client.settingGateway.get(guild.id).joinLeaveLog != null && client.settingGateway.get(guild.id).joinLeaveLogEnabled === true) {
         var channel = client.channels.get(client.settingGateway.get(guild.id).joinLeaveLog)
-        if (!channel.permissionsFor(client.user).has(["READ_MESSAGES", "SEND_MESSAGES"], true))
+        if (channel.permissionsFor(client.user).has(["READ_MESSAGES", "SEND_MESSAGES"], true)) {
 
             channel.send(`:white_check_mark: Welcome, ${member.user} to the server! Total members: **${guild.members.size}**`)
+        }
     }
 
     if (client.settingGateway.get(guild.id).dmWelcomeMsg != null && client.settingGateway.get(guild.id).dmWelcomeEnabled === true) {
