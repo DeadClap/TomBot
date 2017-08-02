@@ -13,7 +13,7 @@ exports.run = (client, member) => {
 }
 
     if (client.settingGateway.get(guild.id).dmWelcomeEnabled === true) {
-        member.send(dmWelcomeMsg).catch(err => {
+        member.send(client.settingGateway.get(guild.id).dmWelcomeMsg).catch(err => {
             console.error(err)
         })
     }
