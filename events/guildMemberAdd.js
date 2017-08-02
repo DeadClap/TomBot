@@ -16,5 +16,5 @@ exports.run = (client, member) => {
         member.send(dmWelcomeMsg).catch(err => {
             console.error(err)
         }
-    }
+    
 }
