@@ -6,6 +6,7 @@ const tomBot = new Komada.Client({
   clientOptions: {
     fetchAllMembers: true,
   },
+  provider: { engine: "sqlite" }
 });
 
 tomBot.login(require('../bot_logins.json').Tom)
