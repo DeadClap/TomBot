@@ -1,7 +1,7 @@
 const ghissues = require('ghissues')
     , authOptions = {
         user: 'DiscordTomBot',
-        token: 'f8e3aa5a1ab53dc021b7ebea37f0994f9e2d20e7'
+        token: require('../bot_logins.json').tomGithub
     }
 exports.run = async (client, msg, [t, ...body]) => {
     var b = body.join(' ');
