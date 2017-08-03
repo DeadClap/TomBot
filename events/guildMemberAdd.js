@@ -9,7 +9,7 @@ exports.run = (client, member) => {
         var channel = client.channels.get(client.settingGateway.get(guild.id).joinLeaveLog)
         if (channel.permissionsFor(client.user).has(["READ_MESSAGES", "SEND_MESSAGES"], true)) {
             if (client.settingGateway.get(guild.id).joinMsg != 'default') {
-                channel.send(client.funcs.replaceHolders(client.settingGateway.joinMsg, guild, member))
+                channel.send(client.funcs.replaceHolders(client.settingGateway.get(guild.id).joinMsg, guild, member))
             } else {
                 channel.send(def)
             }
