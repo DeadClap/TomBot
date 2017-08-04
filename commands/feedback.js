@@ -25,6 +25,7 @@ exports.run = async (client, msg, [t, ...body]) => {
         var embed = new client.methods.Embed()
             .setTitle(data.title)
             .setDescription(data.body)
+            .addField('Keep track of your feedback', `[Click here to go to github](${issue.url})`)
         return msg.channel.send('Thanks for your feedback!', { embed })
     })
 
