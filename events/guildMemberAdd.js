@@ -34,5 +34,5 @@ exports.run = (client, member) => {
             })
     }
     if (client.settingGateway.get(guild.id).joinRank != null) 
-        member.addRole(client.settingGateway.get(guild.id).joinRank)
-}
+        member.addRole(client.settingGateway.get(guild.id).joinRank).catch(err => client.emit("error", err))
+    }
