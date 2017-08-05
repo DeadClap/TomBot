@@ -1,10 +1,17 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 exports.run = (client) => {
     var games = [`with ${client.users.size} users on ${client.guilds.size} servers`, `\@${client.user.tag} help`, `https://discord.gg/mDb2CBx`]
-    for (game in games) {
+    var i = 0
+    while (i < 3) {
         client
             .user
-            .setGame(game)
-        client.emit('log', game)
-        setTimeout(() => console.log('Changing Game...'), 120000)
+            .setgame(games[i])
+        i = i + 1
+        await sleep(160000)
+        if (i > 2) 
+            i = 0
     }
 }
