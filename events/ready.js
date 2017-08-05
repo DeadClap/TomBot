@@ -5,13 +5,11 @@ function sleep(ms) {
 exports.run = (client) => {
     var games = [`with ${client.users.size} users on ${client.guilds.size} servers`, `\@${client.user.tag} help`, `https://discord.gg/mDb2CBx`]
     var i = 0
-    while (i < 3) {
+    setInterval(() => {
         client
             .user
-            .setgame(games[i])
+            .setGame(games[i])
         i = i + 1
-        await sleep(160000)
-        if (i > 2) 
-            i = 0
     }
+    160000)
 }
