@@ -11,6 +11,7 @@
   "dependencies": {
     "ghissues": "^1.1.3",
     "github-create-issue": "^2.0.0",
-    "komada": "github:dirigeants/komada#indev"
+    "komada": "github:dirigeants/komada#indev",
+    "sqlite": "^2.8.0"
   }
 }
