@@ -11,6 +11,5 @@ exports.run = (client) => {
             .user
             .setGame(games[i])
         i = i + 1
-    }
-    160000)
+    }, 160000)
 }
