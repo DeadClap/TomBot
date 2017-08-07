@@ -13,5 +13,5 @@ exports.run = (client) => {
         i = i + 1
         if (i > games.length - 1) 
             i = 0
-    }, 10000)
+    }, 160000)
 }
