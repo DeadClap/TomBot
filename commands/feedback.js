@@ -25,7 +25,7 @@ exports.run = async (client, msg, [t, ...body]) => {
         var embed = new client.methods.Embed()
             .setTitle(data.title)
             .setDescription(data.body)
-            .addField('Keep track of your feedback', `[Click here to go to github](${issue.url})`)
+            .addField('Keep track of your feedback', `[Click here to go to github](${issue.html_url})`)
         return msg.channel.send('Thanks for your feedback!', { embed })
     })
 
@@ -51,7 +51,3 @@ exports.help = {
     usageDelim: " ",
     extendedHelp: "Makes sending of feature requests (fReq), bugs, and comments to the dev easier."
 }
-
-
-
-// f8e3aa5a1ab53dc021b7ebea37f0994f9e2d20e7 
