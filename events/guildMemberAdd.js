@@ -5,15 +5,15 @@ exports.run = (client, member) => {
 
     var def = `:white_check_mark: Welcome, ${member.user} to the server! Total members: **${guild.members.size}**`
 
-    if (client.settingGateway.get(guild.id).joinLeaveLog != null && client.settingGateway.get(guild.id).joinLeaveLogEnabled === true) {
+    if (client.settings.guilds.get(guild.id).joinLeaveLog != null && client.settings.guilds.get(guild.id).joinLeaveLogEnabled === true) {
         var channel = client
             .channels
-            .get(client.settingGateway.get(guild.id).joinLeaveLog)
+            .get(client.settings.guilds.get(guild.id).joinLeaveLog)
         if (channel.permissionsFor(client.user).has([
             "READ_MESSAGES", "SEND_MESSAGES"
         ], true)) {
-            if (client.settingGateway.get(guild.id).joinMsg != 'default') {
-                channel.send(client.funcs.replaceHolders(client.settingGateway.get(guild.id).joinMsg, guild, member))
+            if (client.settings.guilds.get(guild.id).joinMsg != 'default') {
+                channel.send(client.funcs.replaceHolders(client.settings.guilds.get(guild.id).joinMsg, guild, member))
             } else {
                 channel.send(def)
             }
@@ -21,9 +21,9 @@ exports.run = (client, member) => {
         }
     }
 
-    if (client.settingGateway.get(guild.id).dmWelcomeMsg != null && client.settingGateway.get(guild.id).dmWelcomeEnabled === true) {
+    if (client.settings.guilds.get(guild.id).dmWelcomeMsg != null && client.settings.guilds.get(guild.id).dmWelcomeEnabled === true) {
         var dmWelcomeMessage = client
-            .settingGateway
+            .settings.guilds
             .get(guild.id)
             .dmWelcomeMsg
 
@@ -33,6 +33,6 @@ exports.run = (client, member) => {
                 console.error(err)
             })
     }
-    if (client.settingGateway.get(guild.id).joinRank != null) 
-        member.addRole(client.settingGateway.get(guild.id).joinRank).catch(err => client.emit("error", err))
+    if (client.settings.guilds.get(guild.id).joinRank != null)
+        member.addRole(client.settings.guilds.get(guild.id).joinRank).catch(err => client.emit("error", err))
     }

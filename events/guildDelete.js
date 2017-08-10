@@ -1,5 +1,5 @@
 exports.run = (client, guild) => {
-    client.settingGateway.destroy(guild.id)
+    client.settings.guilds.destroy(guild.id)
     // client.user.setGame(`with ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users on ${client.guilds.size} servers`)
     function usersToBots(members) {
         var u = 0

@@ -4,11 +4,11 @@ exports.run = (client, member) => {
 
     var def = `:x: ${member.user.tag} has left the server! Total members: **${guild.members.size}**`
 
-    if (client.settingGateway.get(guild.id).joinLeaveLog != null && client.settingGateway.get(guild.id).joinLeaveLogEnabled === true) {
-        var channel = client.channels.get(client.settingGateway.get(guild.id).joinLeaveLog)
+    if (client.settings.guilds.get(guild.id).joinLeaveLog != null && client.settings.guilds.get(guild.id).joinLeaveLogEnabled === true) {
+        var channel = client.channels.get(client.settings.guilds.get(guild.id).joinLeaveLog)
         if (!channel.permissionsFor(client.user).has(["READ_MESSAGES", "SEND_MESSAGES"], true)) return
-        if (client.settingGateway.get(guild.id).leaveMsg != 'default') {
-            channel.send(client.funcs.replaceHolders(client.settingGateway.get(guild.id).leaveMsg, guild, member))
+        if (client.settings.guilds.get(guild.id).leaveMsg != 'default') {
+            channel.send(client.funcs.replaceHolders(client.settings.guilds.get(guild.id).leaveMsg, guild, member))
         } else {
             channel.send(def)
         }
