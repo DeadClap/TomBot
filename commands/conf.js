@@ -18,7 +18,6 @@ exports.run = async (client, msg, [action, key, ...value]) => {
         return msg.sendMessage(`Successfully added the value \`${value.join(" ")}\` to the key: **${key}**`);
       }
       const response = await client.settings.guilds.update(msg.guild, { [key]: value.join(" ") });
-      console.log(response)
       return msg.sendMessage(`Successfully updated the key **${key}**: \`${response[key]}\``);
     }
     case "remove": {
@@ -39,6 +38,7 @@ exports.run = async (client, msg, [action, key, ...value]) => {
       const response = await client.settings.guilds.reset(msg.guild, key);
       return msg.sendMessage(`The key **${key}** has been reset to: \`${response}\``);
     }
+    case "list": {
       const longest = Object.keys(configs).sort((a, b) => a.length < b.length)[0].length;
       const output = ["= Guild Settings ="];
       const entries = Object.entries(configs);
