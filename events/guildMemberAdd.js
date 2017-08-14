@@ -21,7 +21,7 @@ exports.run = (client, member) => {
         }
     }
 
-    if (client.settings.guilds.get(guild.id).dmWelcomeMessage != null && client.settings.guilds.get(guild.id).dmWelcomeEnabled === true) {
+    if (client.settings.guilds.get(guild.id).dmWelcomeMessage != null && client.settings.guilds.get(guild.id).dmWelcome === true) {
         var dmWelcomeMsg = client
             .settings.guilds
             .get(guild.id)
