@@ -21,14 +21,14 @@ exports.run = (client, member) => {
         }
     }
 
-    if (client.settings.guilds.get(guild.id).dmWelcomeMsg != null && client.settings.guilds.get(guild.id).dmWelcomeEnabled === true) {
-        var dmWelcomeMessage = client
+    if (client.settings.guilds.get(guild.id).dmWelcomeMessage != null && client.settings.guilds.get(guild.id).dmWelcomeEnabled === true) {
+        var dmWelcomeMsg = client
             .settings.guilds
             .get(guild.id)
-            .dmWelcomeMsg
+            .dmWelcomeMessage
 
         member
-            .send(client.funcs.replaceHolders(dmWelcomeMessage, guild, member))
+            .send(client.funcs.replaceHolders(dmWelcomeMsg, guild, member))
             .catch(err => {
                 console.error(err)
             })
