@@ -9,7 +9,12 @@ exports.run = (client) => {
         client.emit('log', 'Game: ' + games[i] + " " + i)
         client
             .user
-            .setGame(games[i])
+            .setpresence({
+                status: "online",
+                game: {
+                    name: games[i]
+                }
+            })
         i = i + 1
         if (i > games.length - 1) 
             i = 0
