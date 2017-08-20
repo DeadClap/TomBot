@@ -12,7 +12,8 @@ exports.run = (client) => {
             .setPresence({
                 status: "online",
                 game: {
-                    name: games[i]
+                    name: games[i],
+                    type: 0
                 }
             })
         i = i + 1
