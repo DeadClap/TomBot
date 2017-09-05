@@ -11,9 +11,10 @@ exports.run = async (client, msg) => {
 
 exports.conf = {
     enabled: true,
-    runIn: ["text", "dm"],
-    aliases: ["bot", "binfo", "details", "what"],
-    permlevel: 0
+    runIn: ["text"],
+    aliases: [],
+    permLevel: 0,
+    botPerms: [],
 };
 
 exports.help = {
