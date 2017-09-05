@@ -4,6 +4,8 @@ const ghissues = require('ghissues')
         token: require('../../bot_logins.json').tomGithub
     }
 exports.run = async (client, msg, [t, ...body]) => {
+    var myserver = client.guilds.get('332178051154706432')
+    var fbLog = myserver.channels.find('name', 'feedback-log')
     var b = body.join(' ');
     if (t === "fReq" || t === "freq") {
         var type = "feature"
@@ -26,7 +28,7 @@ exports.run = async (client, msg, [t, ...body]) => {
             .setTitle(data.title)
             .setDescription(data.body)
             .addField('Keep track of your feedback', `[Click here to go to github](${issue.html_url})`)
-        return msg.channel.send('Thanks for your feedback!', { embed })
+        return msg.channel.send('Thanks for your feedback!', { embed }) && fbLog.send({ embed })
     })
 
 
