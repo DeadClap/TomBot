@@ -1,9 +1,17 @@
 exports.run = async (client, msg, [user]) => {
+    var roleString;
+    if (!user) var user = msg.member;
+    if (user.roles.size > 0) { 
+        roleString = user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).slice(1).reverse().join(', ')
+    } else if (user.roles.size === 0) {
+        roleString = "None"
+    }
 
-    if (!user) var user = msg.member
+
+    
     var embed = new client.methods.Embed()
     .addField('Full user', `${user.user.tag} (${user.id})`)
-    .addField('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).slice(1).reverse().join(', '));
+    .addField('Roles', roleString);
     
     return msg.channel.send({embed, disableEveryone: true});
 };
