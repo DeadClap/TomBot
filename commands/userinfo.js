@@ -1,9 +1,9 @@
 exports.run = async (client, msg, [user]) => {
     var embed = new client.methods.Embed()
     .addField('Full user', `${user.user.tag} (${user.id})`)
-    .addField('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).reverse().join(', ').replace('@everyone\,', ''));
+    .addField('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a}`).slice(1).reverse().join(', '));
     
-    return msg.channel.send({embed});
+    return msg.channel.send({embed, disableEveryone: true});
 };
 
 exports.conf = {
