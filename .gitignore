@@ -30,3 +30,4 @@ node_modules
 bwd/provider/
 .eslintrc.json
 package-lock.json
+.vscode/tasks.json
