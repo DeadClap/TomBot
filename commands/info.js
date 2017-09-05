@@ -2,7 +2,7 @@ exports.run = async (client, msg) => {
     const information = [
         "TomBot is a general use, utility bot.",
         `Want to invite me? Use the \`${msg.guild.settings.prefix}invite\``,
-        "Have any suggestions, bugs, or feedback please use \`${msg.guild.settings.prefix}feedback\`"
+        `Have any suggestions, bugs, or feedback please use \`${msg.guild.settings.prefix}feedback\``
 
     ]
 
