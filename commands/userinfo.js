@@ -1,7 +1,7 @@
 var {Discord, MessageEmbed} = require('discord.js')
-exports.run = (client,msg, [user]) => {
+exports.run = (client, msg, [user]) => {
     var embed = new MessageEmbed()
-    .addField('User', `${user.tag} (${user.id})`)
+    .addField('User', `${user.user.tag} (${user.id})`)
     .addfield('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).join(', ').replace('@everyone\,', ''))
     
     msg.channel.send({embed})
