@@ -1,8 +1,10 @@
 exports.run = async (client, msg) => {
+
+    var prefix = msg.guild.settings.prefix ? msg.guild.settings.prefix : client.config.prefix
     const information = [
         "TomBot is a general use, utility bot.",
-        `Want to invite me? Use the \`${msg.guild.settings.prefix}invite\``,
-        `Have any suggestions, bugs, or feedback please use \`${msg.guild.settings.prefix}feedback\``
+        `Want to invite me? Use the \`${prefix}invite\``,
+        `Have any suggestions, bugs, or feedback please use \`${prefix}feedback\``
 
     ]
 
