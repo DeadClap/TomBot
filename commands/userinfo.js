@@ -1,10 +1,8 @@
 exports.run = async (client, msg, [user]) => {
-    var embed = new client.methods.Embed()
-    .addField('User', `${user.user.tag} (${user.id})`)
-    .addfield('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).join(', ').replace('@everyone\,', ''))
+    var embed = new client.methods.Embed().addField('User', `${user.user.tag} (${user.id})`).addfield('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).join(', ').replace('@everyone\,', ''));
     
-    msg.channel.send({embed})
-}
+    msg.channel.send({embed});
+};
 
 exports.conf = {
     enabled: true,
