@@ -1,4 +1,6 @@
 exports.run = async (client, msg, [user]) => {
+
+    if (!user) var user = msg.member
     var embed = new client.methods.Embed()
     .addField('Full user', `${user.user.tag} (${user.id})`)
     .addField('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).slice(1).reverse().join(', '));
@@ -17,6 +19,6 @@ exports.conf = {
 exports.help = {
     name: "userinfo",
     description: "Displays Info about the tagged user, or yourself if no mention.",
-    usage: "<user:member>",
+    usage: "[user:member]",
     usageDelim: ""
 };
