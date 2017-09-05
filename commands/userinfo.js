@@ -1,6 +1,5 @@
-var {Discord, MessageEmbed} = require('discord.js')
 exports.run = async (client, msg, [user]) => {
-    var embed = new MessageEmbed()
+    var embed = new client.methods.Embed()
     .addField('User', `${user.user.tag} (${user.id})`)
     .addfield('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).join(', ').replace('@everyone\,', ''))
     
