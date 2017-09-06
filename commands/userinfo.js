@@ -15,9 +15,6 @@ exports.run = async(client, msg, [user]) => {
         .addField('User ID', user.id)
 
         .addField('Roles', roleString)
-    msg.channel.send({
-        embed
-    })
 
 
     return msg.channel.send({
