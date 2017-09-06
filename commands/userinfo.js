@@ -10,7 +10,7 @@ exports.run = async(client, msg, [user]) => {
         .addField('Full user', `${user.user.tag} (${user.id})`, true)
         if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
         .addField('Roles', roleString)
-    if (user.id === client.owner.id) embed.addField('Is Developer', "Yes")
+    
         
     return msg.channel.send({
         embed,
