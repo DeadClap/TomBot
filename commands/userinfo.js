@@ -6,7 +6,8 @@ exports.run = async(client, msg, [user]) => {
 
 
     var embed = new client.methods.Embed()
-        .addField('Full user', `${user.user.tag} (${user.id})`)
+        .addField('Full user', `${user.user.tag} (${user.id})`, true)
+        if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
         .addField('Roles', roleString)
     if (user.id === client.owner.id) embed.addField('Is Developer', "Yes")
         
