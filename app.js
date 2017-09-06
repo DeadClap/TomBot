@@ -6,7 +6,8 @@ const tomBot = new Komada.Client({
   clientOptions: {
     fetchAllMembers: true,
   },
-  provider: { engine: "json" }
+  provider: { engine: "json" },
+  cmdLogging: true
 });
 
 tomBot.login(require('../bot_logins.json').Tom)
