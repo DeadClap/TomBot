@@ -6,6 +6,7 @@ exports.run = async(client, msg, [user]) => {
 
 
     var embed = new client.methods.Embed()
+        .setThumbnail(user.user.displayAvatarURL({format: 'jpg', size: 256}))
         .addField('Full user', `${user.user.tag} (${user.id})`, true)
         if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
         .addField('Roles', roleString)
