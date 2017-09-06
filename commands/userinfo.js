@@ -8,6 +8,8 @@ exports.run = async(client, msg, [user]) => {
     var embed = new client.methods.Embed()
         .addField('Full user', `${user.user.tag} (${user.id})`)
         .addField('Roles', roleString)
+    if (user.id === client.owner.id) embed.addField('Is Developer', "Yes")
+        
     return msg.channel.send({
         embed,
         disableEveryone: true
