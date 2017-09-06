@@ -11,7 +11,7 @@ exports.run = async (client, msg, [user]) => {
     
     var embed = new client.methods.Embed()
     .addField('Full user', `${user.user.tag} (${user.id})`)
-    if (user.roles.size >= 1) { 
+    if (user.roles.size > 1) { 
         embed.addField('Roles', user.roles.sort((a, b) => a.position - b.position || a.id - b.id).map(a => `${a.name}`).slice(1).reverse().join(', '));
     } else {
         embed.addField('Roles', 'None')
