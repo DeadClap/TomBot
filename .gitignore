@@ -31,3 +31,4 @@ bwd/provider/
 .eslintrc.json
 package-lock.json
 .vscode/tasks.json
+bot_logins.json
