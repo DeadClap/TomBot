@@ -12,8 +12,7 @@ exports.run = async(client, msg, [user]) => {
         }))
         .addField('User NAME#TAG', `${user.user.tag}`, true)
     if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
-        .addField('User ID', user.id)
-
+        embed.addField('User ID', user.id)
         .addField('Roles', roleString)
 
 
