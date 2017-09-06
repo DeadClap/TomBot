@@ -6,12 +6,20 @@ exports.run = async(client, msg, [user]) => {
 
 
     var embed = new client.methods.Embed()
-        .setThumbnail(user.user.displayAvatarURL({format: 'jpg', size: 256}))
-        .addField('Full user', `${user.user.tag} (${user.id})`, true)
-        if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
+        .setThumbnail(user.user.displayAvatarURL({
+            format: 'jpg',
+            size: 256
+        }))
+        .addField('User NAME#TAG', `${user.user.tag}`, true)
+    if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
+        .addField('User ID', user.id)
+
         .addField('Roles', roleString)
-    
-        
+    msg.channel.send({
+        embed
+    })
+
+
     return msg.channel.send({
         embed,
         disableEveryone: true
