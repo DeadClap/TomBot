@@ -12,6 +12,7 @@ exports.run = async(client, msg, [user]) => {
         }))
         .addField('User NAME#TAG', `${user.user.tag}`, true)
     if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
+    if (client.config.extraCFG.owners.includes(user.id)) embed.addField('Is Owner', 'Yes', true)
         embed.addField('User ID', user.id)
         .addField('Roles', roleString)
         .addField('Joined Discord', user.user.createdAt.toDateString(), true)
