@@ -4,7 +4,7 @@ function sleep(ms) {
 
 exports.run = (client) => {
     client.user.setPresence({
-        game: {
+        activity: {
             name: `\@${client.user.tag} help`,
             type: 0
         }
