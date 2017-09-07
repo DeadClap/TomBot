@@ -1,10 +1,10 @@
-exports.run = (client, msg, [...ann]) => {
+exports.run = async (client, msg, [...ann]) => {
     client.guilds.forEach(g => {
         if (g.id !== '332178051154706432') return
         if (!g.settings.announceChannel) {
-            g.owner.send(`You are recieving this because you don't have a guild announcement channel setup in your server.\n ${ann}`)
+            return g.owner.send(`You are recieving this because you don't have a guild announcement channel setup in your server.\n ${ann}`)
         } else {
-            g.settings.announceChannel.send(ann.join)
+            return g.settings.announceChannel.send(ann.join)
         }
         
     })

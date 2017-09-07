@@ -6,7 +6,7 @@ exports.run = (client, member) => {
 
     if (client.settings.guilds.get(guild.id).joinLeaveLog != null && client.settings.guilds.get(guild.id).joinLeaveLogEnabled === true) {
         var channel = client.channels.get(client.settings.guilds.get(guild.id).joinLeaveLog)
-        if (!channel.permissionsFor(client.user).has(["READ_MESSAGES", "SEND_MESSAGES"], true)) return
+        if (!channel.permissionsFor(client.user).has(3072, true)) return
         if (client.settings.guilds.get(guild.id).leaveMsg != 'default') {
             channel.send(client.funcs.replaceHolders(client.settings.guilds.get(guild.id).leaveMsg, guild, member))
         } else {
