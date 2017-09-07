@@ -1,5 +1,5 @@
 exports.run = (client, msg, [...ann]) => {
-    return msg.channel.send(ann)
+    return msg.channel.send(ann.join(' '))
 }
 
 exports.conf = {
