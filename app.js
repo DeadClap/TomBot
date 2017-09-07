@@ -11,4 +11,6 @@ const tomBot = new Komada.Client({
   extraCFG: require('./extraCfg.json')
 });
 
+client.permStructure.addlevel(8, false, (client, msg) => client.config.extraCFG.owners.includes(msg.author.id))
+
 tomBot.login(require('../bot_logins.json').Tom)
