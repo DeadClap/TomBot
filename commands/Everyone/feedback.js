@@ -1,7 +1,7 @@
 const ghissues = require('ghissues')
     , authOptions = {
         user: 'DiscordTomBot',
-        token: require('../../bot_logins').tomGithub
+        token: require('../../bot_logins.json').tomGithub
     }
 exports.run = async (client, msg, [t, ...body]) => {
     var myserver = client.guilds.get('332178051154706432')
@@ -22,7 +22,7 @@ exports.run = async (client, msg, [t, ...body]) => {
         if (err) {
             client.emit("error", err)
         }
-        console.log(issue)
+        // console.log(issue)
 
         var embed = new client.methods.Embed()
             .setTitle(data.title)
