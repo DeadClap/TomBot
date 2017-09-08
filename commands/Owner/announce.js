@@ -1,9 +1,11 @@
 exports.run = async (client, msg, [...ann]) => {
     client.guilds.forEach(g => {
         if (!g.settings.announceChannel) {
-            return g.owner.send(`You are recieving this because you don't have a guild announcement channel setup in your server.\n ${ann.join}`)
+            console.log(`[DM: ${g.name} #${g.owner.tag}`)
+            return g.owner.send(`You are recieving this because you don't have a guild announcement channel setup in your server.\n ${ann.join(' ')}`)
         } else {
-            return g.settings.announceChannel.send(ann.join)
+            console.log(`[${g.name}/#${g.channels.get(g.settings.announceChannel).name}]`)
+            return g.channels.get(g.settings.announceChannel).send(ann.join(' '))
         }
         
     })
