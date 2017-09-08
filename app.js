@@ -28,4 +28,4 @@ const tomBot = new Komada.Client({
   extraCFG: require('./extraCfg.json')
 });
 
-tomBot.login(require('../bot_logins.js').Tom)
+tomBot.login(require('../bot_logins').Tom)
