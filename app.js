@@ -6,6 +6,7 @@ const tomBot = new Komada.Client({
   clientOptions: {
     fetchAllMembers: true,
   },
+  permStructure,
   provider: { engine: "json" },
   cmdLogging: true,
   extraCFG: require('./extraCfg.json')
