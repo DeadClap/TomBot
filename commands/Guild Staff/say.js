@@ -3,7 +3,7 @@ exports.run = async (client, msg, [channel, ...say]) => {
   
   if (!chan.permissionsFor(client.user).has(19456)) return msg.reply(`\`\`\`Error: Missing Permissions in Channel [SEND_MESSAGES, READ_MESSAGES, EMBED_LINKS]\`\`\``) && msg.delete(30000)
   
-  if (chan !== msg.channel) return chan.send(say.join(' ')) && if (chan !== msg.channel) msg.reply('Message Sent!') && msg.delete(30000)
+  if (chan !== msg.channel) return chan.send(say.join(' ')) && msg.delete(30000)
   if (chan === msg.channel) return chan.send(say.join(' ')) && msg.delete(30000) 
 }
 
