@@ -1,5 +1,8 @@
 exports.run = async (client, msg, [channel, ...say]) => {
-  return msg.channel.send(say)
+  var chan = channel ? channel : msg.channel
+  
+  
+  return chan.send(say.join(' ')).catch(msg.reply('\`\`\`Error" No Permission\`\`\`'))
 }
 
 exports.conf = {
