@@ -1,5 +1,5 @@
-exports.run = async (client, msg, [...say]) => {
-  return msg.channel.send('NOPE, indev')
+exports.run = async (client, msg, [channel, ...say]) => {
+  return msg.channel.send(say)
 }
 
 exports.conf = {
@@ -15,6 +15,6 @@ exports.conf = {
 exports.help = {
     name: 'say',
     description: 'Say something in a guild channel',
-    usage: "<say:str> [...]",
+    usage: "[channel:channel] <say:str> [...]",
     usageDelim: " "
 }
