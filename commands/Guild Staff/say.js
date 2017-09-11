@@ -1,7 +1,7 @@
 exports.run = async (client, msg, [channel, ...say]) => {
   var chan = channel ? channel : msg.channel
   
-  if (!chan.permissionsFor(client.user).has(19456)) return msg.reply(`\`\`\`Error: Missing Permissions in Channel [SEND_MESSAGES, READ_MESSAGES, EMBED_LINKS]`)
+  if (!chan.permissionsFor(client.user).has(19456)) return msg.reply(`\`\`\`Error: Missing Permissions in Channel [SEND_MESSAGES, READ_MESSAGES, EMBED_LINKS]\`\`\``)
   return chan.send(say.join(' '))
 }
 
