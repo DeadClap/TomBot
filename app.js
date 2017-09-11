@@ -25,7 +25,8 @@ const tomBot = new Komada.Client({
   permStructure,
   provider: { engine: "json" },
   cmdLogging: true,
-  extraCFG: require('./extraCfg.json')
+  extraCFG: require('./extraCfg.json'),
+  debug: true
 });
 
 tomBot.login(require('../bot_logins.json').Tom)

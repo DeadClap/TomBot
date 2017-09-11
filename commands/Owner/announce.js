@@ -1,18 +1,15 @@
-exports.run = async (client, msg, [...ann]) => {
-    client.guilds.forEach(g => {
-        if (!g.settings.announceChannel) {
-            console.log(`[DM: ${g.name} #${g.owner.tag}`)
-            return g.owner.send(`\`\`\`[g.name]\`\`\`You are recieving this because you don't have a guild announcement channel setup in your server.\n ${ann.join(' ')}`)
-        } else {
-            console.log(`[${g.name}/#${g.channels.get(g.settings.announceChannel).name}]`)
-            return g.channels.get(g.settings.announceChannel).send(ann.join(' '))
-        }
-        
-    })
-    
-    // return msg.channel.send(ann.join(' '))
+exports.run = async(client, msg, [...ann]) => {
+  if (!client.config.debug)  {
+        client.guilds.forEach(g => {
+            client.funcs.announce(client, g, ann)
+        })
+    } else if (client.config.debug) {
+        client.guilds.forEach(g => {
+            if (!client.funcs.debugServer(client, g)) return
+            return client.funcs.announce(client, g, ann)
+        })
+    }
 }
-
 exports.conf = {
     enabled: true,
     runIn: ['text', 'dm'],
@@ -22,7 +19,6 @@ exports.conf = {
     requiredFuncs: [],
     requiredSettings: [],
 }
-
 exports.help = {
     name: 'announce',
     description: 'Announce something to all guilds',
