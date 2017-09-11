@@ -6,6 +6,6 @@ module.exports = (client, guild, announcement) => {
         return channel.send(ann)
     } else if (!guild.settings.announceChannel){
         console.log(`[DM: ${guild.owner.user.username}/${guild.owner.nickname} \@ ${guild.name}]`)
-        return guild.owner.send(`[${guild.name}] You are recieving this because you own the guild prefixed and it does not have an announceChannel set in the config. Use \`\`\`t.conf set announceChannel \#channel\`\`\`\n${ann}`)
+        return guild.owner.send(`[${guild.name}] You are recieving this because you own the guild prefixed and it does not have an announceChannel set in the config. Use \`\`\`t.conf set announceChannel \#channel\`\`\`\n${ann}`).catch(console.log(`${guild.name} - ${guild.owner.user.username} FAILED to send ANN due to no channel.`))
     }
 }
