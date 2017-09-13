@@ -13,7 +13,7 @@ exports.conf = {
 }
 
 exports.help = {
-    name: 'avatar',
+    name: 'setavatar',
     description: 'Change my avatar',
     usage: "<link:url>",
     usageDelim: ""
