@@ -1,5 +1,9 @@
-const Komada = require('komada');
-var permStructure = new Komada.PermLevels()
+const {
+  Client,
+  PermLevels
+} = require('komada');
+
+var permStructure = new PermLevels()
   .addLevel(0, false, () => true)
   .addLevel(2, false, (client, msg) => {
     if (!msg.guild || !msg.guild.settings.modRole) return false;
@@ -15,15 +19,17 @@ var permStructure = new Komada.PermLevels()
   .addLevel(8, false, (client, msg) => client.config.extraCFG.owners.includes(msg.author.id))
   .addLevel(9, true, (client, msg) => msg.author.id === client.config.ownerID)
   .addLevel(10, false, (client, msg) => msg.author.id === client.config.ownerID);
-  
-const tomBot = new Komada.Client({
+
+const tomBot = new Client({
   ownerID: "195223544186142727",
   prefix: "t.",
   clientOptions: {
     fetchAllMembers: true,
   },
   permStructure,
-  provider: { engine: "json" },
+  provider: {
+    engine: "json"
+  },
   cmdLogging: true,
   extraCFG: require('./extraCfg.json'),
   debug: true
