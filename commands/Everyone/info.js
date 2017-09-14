@@ -9,8 +9,12 @@ exports.run = async (client, msg) => {
         `Need some support? Join the TomBot Server: [Click here](https://discord.gg/mDb2CBx)`
 
     ]
+    
+    var embed = new client.methods.Embed()
+    .setTitle('TomBot Info')
+    .setDescription(information)
 
-    msg.channel.send(information)
+    msg.channel.send({embed})
 };
 
 exports.conf = {
