@@ -1,6 +1,9 @@
 exports.run = async (client, msg) => {
 
     var prefix = msg.guild.settings.prefix ? msg.guild.settings.prefix : client.config.prefix
+    var embed = new client.methods.Embed()
+    .setTitle('TomBot Info')
+    .setFooter(`A bot for ${client.users.get('316981944690671616').username} by ${client.owner.username}`)
     
     const information = [
         "TomBot is a general use, utility bot.",
@@ -10,10 +13,10 @@ exports.run = async (client, msg) => {
 
     ]
     
-    var embed = new client.methods.Embed()
-    .setTitle('TomBot Info')
-    .setDescription(information)
-    .setFooter(`A bot for ${client.users.get('316981944690671616').username} by ${client.owner.username}`)
+    information.forEach(p => embed.addField('\u200B', p))
+    
+    
+    
 
     msg.channel.send({embed})
 };
