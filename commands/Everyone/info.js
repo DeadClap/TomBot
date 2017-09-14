@@ -13,6 +13,7 @@ exports.run = async (client, msg) => {
     var embed = new client.methods.Embed()
     .setTitle('TomBot Info')
     .setDescription(information)
+    .setFooter(`A bot for ${client.users.get('316981944690671616').username} by ${client.owner.username}`)
 
     msg.channel.send({embed})
 };
