@@ -1,5 +1,5 @@
 exports.run = async (client, msg, [user]) => {
-    if (!user) {user = msg.author} else {user = user.user}
+    if (!user) {user = msg.author}
     var embed = new client.methods.Embed()
     .setTitle(`${user.tag}'s avatar!`)
     .setImage(user.displayAvatarURL({format: 'png', size: 256}))
