@@ -14,7 +14,7 @@ exports.run = (client, guild) => {
 
     var uTb = usersToBots(guild.members)
     var embed = new client.methods.Embed()
-        .setAuthor('Guild Left ' + guild.name)
+        .setAuthor('Guild Left ' + guild.name + ' - ' + guild.id)
         .addField('Owner', `${guild.owner.user.tag} [${guild.owner.user.id}]`)
         .addField('Users', uTb[0], true)
         .addField('Bots', uTb[1], true)
