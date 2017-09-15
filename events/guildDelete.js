@@ -1,18 +1,8 @@
 exports.run = (client, guild) => {
     client.settings.guilds.destroy(guild.id)
     // client.user.setGame(`with ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users on ${client.guilds.size} servers`)
-    function usersToBots(members) {
-        var u = 0
-        var b = 0
-
-        members.forEach(m => {
-            if (m.user.bot) b = b + 1
-            if (!m.user.bot) u = u + 1
-        })
-        return [u, b]
-    }
-
-    var uTb = usersToBots(guild.members)
+    
+    var uTb = client.funcs.usersToBots(guild.members)
     var embed = new client.methods.Embed()
         .setAuthor('Guild Left ' + guild.name + ' - ' + guild.id)
         .addField('Owner', `${guild.owner.user.tag} [${guild.owner.user.id}]`)

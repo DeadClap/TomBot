@@ -1,7 +1,6 @@
 exports.run = (client, guild) => {
     client.settings.guilds.create(guild.id)
     // client.user.setGame(`with ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users on ${client.guilds.size} servers`)
-    
 
     var uTb = client.funcs.usersToBots(guild.members)
     var embed = new client.methods.Embed()
