@@ -5,7 +5,7 @@ exports.run = async(client, msg, [user]) => {
 
 
 
-    var embed = new client.methods.Embed()
+    var embed = new client.methods.Embed().setColor(user.highestRole.color)
         .setThumbnail(user.user.displayAvatarURL({
             format: 'jpg',
             size: 256
