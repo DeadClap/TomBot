@@ -4,11 +4,11 @@ exports.run = async /*Don't forget async*/ (client, msg, [user, ...reason] /* if
 
 exports.conf = {
     enabled: true, // Self Explainatory - Ignore my spelling
-    runIn: ['text','dm','group'], // Channel Types this command can run
+    runIn: ['text'], // Channel Types this command can run
     aliases: [], // Other commands that trigger this one
     permLevel: 2, // Minumum Perms required to run this command
     requireFuncs: [], // Funcs required for this to work
-    requiredSettings: ["modlogs"]  // Guild Settings required for this to run
+    requiredSettings: []  // Guild Settings required for this to run
     //cooldown: 0  // uncomment the first bit to use cooldown function
 };
 
