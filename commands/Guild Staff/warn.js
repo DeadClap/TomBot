@@ -1,15 +1,15 @@
-exports.run = async /*Don't forget async*/ (client, msg, [user, ...reason] /* if you add anything to help.usage add the names here. in an Array, if you have a [...] after an arg use [arg1,arg2,...arg3] if you third arg is more than one word.*/) => {
+exports.run = async (client, msg, [user, ...reason]) => {
     msg.reply('Indev')
 };
 
 exports.conf = {
-    enabled: true, // Self Explainatory - Ignore my spelling
-    runIn: ['text'], // Channel Types this command can run
-    aliases: [], // Other commands that trigger this one
-    permLevel: 2, // Minumum Perms required to run this command
-    requireFuncs: [], // Funcs required for this to work
-    requiredSettings: []  // Guild Settings required for this to run
-    //cooldown: 0  // uncomment the first bit to use cooldown function
+    enabled: true, 
+    runIn: ['text'], 
+    aliases: [], 
+    permLevel: 2, 
+    requireFuncs: [], 
+    requiredSettings: []  
+    
 };
 
 exports.help = {
