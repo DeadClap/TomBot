@@ -7,7 +7,7 @@ exports.conf = {
     runIn: ["text"],
     aliases: [],
     permLevel: 2,
-    botPerms: ["SEND_MESSAGES", "EMBED_LINKS", "READ_MESSAGES"],
+    botPerms: ["EMBED_LINKS"],
     requiredFuncs: [],
     requiredSettings: ["modlogs"],
 }
