@@ -1,4 +1,4 @@
-exports.run = async(client, msg, [user, ...reason]) => {
+exports.run = async (client, msg, [user, ...reason]) => {
     var embed = new client.methods.Embed()
         .setColor(client.funcs.hex())
         .setTitle('Warning')
@@ -6,7 +6,8 @@ exports.run = async(client, msg, [user, ...reason]) => {
         .addField('Reason', reason.join(' '))
         .setFooter(msg.author.tag, msg.author.displayAvatarURL({format: 'jpg', size: 256}))
     if (msg.guild.settings.modlogs) {
-        return msg.guild.channels.get(msg.guild.settings.modlogs).send({embed}).catch(e => msg.reply(`Insufficient Permissions in modlogs`)) && msg.delete() && msg.channel.send(`${user.tag} has been sucessfully warned: ${reason.join(' ')}`)
+        user.send('You have been warned in: ' + msg.guild.name + '\nFor: ' + reason.join(' ')).catch(e => msg.reply(`User has dm's disabled.`))
+        msg.guild.channels.get(msg.guild.settings.modlogs).send({embed}).catch(e => msg.reply(`Insufficient modlogs permissions.`))
     } else return msg.channel.send(`Failed: Guild doesn't have a modlogs set in the config.`)
 }
 
