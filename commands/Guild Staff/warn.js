@@ -1,6 +1,6 @@
 exports.run = async(client, msg, [user, ...reason]) => {
     var embed = new client.methods.Embed()
-        .setcolor(client.funcs.hex())
+        .setColor(client.funcs.hex())
         .setTitle('Warning')
         .addField('Member', user.tag)
         .addField('Reason', reason.join(' '))
