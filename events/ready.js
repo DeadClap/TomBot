@@ -1,7 +1,6 @@
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 exports.run = (client) => {
     client.user.setPresence({
         activity: {
@@ -13,18 +12,14 @@ exports.run = (client) => {
     var i = 0
     setInterval(() => {
         client.emit('log', 'Game: ' + client.user.presence.activity.name + " " + i)
-        client
-            .user
-            .setPresence({
-                status: "online",
-                activity: {
-                    name: games[i],
-                    type: 0
-                }
-            })
+        client.user.setPresence({
+            status: "online",
+            activity: {
+                name: games[i],
+                type: 0
+            }
+        })
         i = i + 1
-        if (i > games.length - 1) 
-            i = 0
-        
+        if (i > games.length - 1) i = 0
     }, 160000)
 }

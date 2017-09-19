@@ -5,6 +5,5 @@ module.exports = (str, guild, member) => {
     out = out.replace(/\%m/g, guild.members.size)
     out = out.replace(/\%um/g, member)
     out = out.replace(/\%u/g, member.user.username)
-
     return out
 }

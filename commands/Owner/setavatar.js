@@ -1,7 +1,6 @@
-exports.run = async (client, msg, [link]) => {
+exports.run = async(client, msg, [link]) => {
     msg.reply('indev')
 }
-
 exports.conf = {
     enabled: true,
     runIn: ['text'],
@@ -11,7 +10,6 @@ exports.conf = {
     requiredFuncs: [],
     requiredSettings: [],
 }
-
 exports.help = {
     name: 'setavatar',
     description: 'Change my avatar',

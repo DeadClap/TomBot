@@ -1,5 +1,5 @@
 exports.run = async(client, msg, [...ann]) => {
-  if (!client.config.debug)  {
+    if (!client.config.debug) {
         client.guilds.forEach(g => {
             client.funcs.announce(client, g, ann)
         })
