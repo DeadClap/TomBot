@@ -3,7 +3,6 @@ exports.run = async (client, msg) => {
     var prefix = msg.guild.settings.prefix ? msg.guild.settings.prefix : client.config.prefix
     var embed = new client.methods.Embed()
     .setTitle('TomBot Info')
-    // .setFooter(`A bot for ${client.users.get('316981944690671616').username} by ${client.owner.username}`, client.owner.displayAvatarURL({format: 'png', size: 256}))
     
     const information = [
         "TomBot is a general use, utility bot.",

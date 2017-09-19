@@ -32,7 +32,7 @@ exports.run = async (client, msg, [t, ...body]) => {
     })
 
 
-    // return msg.channel.send(`${client.funcs.toTitleCase(type)} | ${b}`)
+    
 };
 
 
