@@ -1,5 +1,8 @@
-exports.run = async (client,msg,[user, ...reason]) => {
-    return msg.channel.send('indev')
+exports.run = async(client, msg, [user, ...reason]) => {
+    var embed = new client.methods.Embed()
+        .setTitle('Warning: ' + user.tag)
+        .addField('Test', 'Testing')
+    return msg.channel.send({embed})
 }
 
 exports.conf = {
