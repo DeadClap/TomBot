@@ -16,6 +16,7 @@ exports.run = async(client, msg, [user]) => {
     if (client.config.extraCFG.owners.includes(user.id)) embed.addField('Is Owner', 'Yes', true)
     embed.addField('User ID', user.id)
         .addField('Roles', roleString)
+        .addField("Kick or Bannable", client.funcs.many.kickable(client,msg, msg.member, msg.guild.member(user.id), msg.guild))
         .addField('Joined Discord', user.user.createdAt.toDateString(), true)
         .addField('Joined The Server', user.joinedAt.toDateString(), true)
     return msg.channel.send({
