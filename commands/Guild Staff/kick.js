@@ -1,5 +1,6 @@
 exports.run = async(client,msg, [user, ...reason]) => {
     if (!client.funcs.many.kickable(client,msg, msg.member, user, msg.guild)) return msg.channel.send('Sorry but you can not kick this person!',{reply:msg.author.id})
+    return msg.channel.send(`${user.user.tag} has been kicked sucessfully!`)
 }
 exports.conf = {
     enabled: true,
