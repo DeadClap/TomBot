@@ -4,7 +4,9 @@ exports.run = async(client, msg, [user, ...reason]) => {
         .addField('Member', user.tag)
         .addField('Reason', reason)
         .setFooter(msg.author.tag, msg.author.displayAvatarURL({format: 'jpg', size: 256}))
-    return msg.channel.send({embed})
+    if (msg.guild.settings.modlogs) {
+        return msg.guild.channels.get(msg.guild.settings.modlogs).send({embed}).catch(e => msg.reply(`Insufficient Permissions in modlogs`))
+    } else return msg.channel.send(`Failed: Guild doesn't have a modlogs set in the config.`)
 }
 
 exports.conf = {
