@@ -1,5 +1,5 @@
 exports.run = async (client, msg, [user, ...reason]) => {
-    console.log(user)
+    if (user === msg.author) return msg.reply('You cannot warn youself.')
     var embed = new client.methods.Embed()
         .setColor(client.funcs.hex())
         .setTitle('Warning')
