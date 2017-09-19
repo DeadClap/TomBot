@@ -12,6 +12,7 @@ exports.run = async (client, msg, [user, ...reason]) => {
         .setFooter(`Acting Moderator: ` + msg.author.tag, msg.author.displayAvatarURL({format: 'jpg', size: 256}))
     var embed3 = new client.methods.Embed()
         .setDescription(`${user.tag} has been successfully warned!`)
+        .setColor(client.funcs.hex())        
     if (msg.guild.settings.modlogs) {
         user.send({embed: embed2}).catch(e => msg.reply(`User has dm's disabled.`))
         msg.guild.channels.get(msg.guild.settings.modlogs).send({embed}).catch(e => msg.reply(`Insufficient modlogs permissions.`))
