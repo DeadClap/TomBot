@@ -1,7 +1,9 @@
 exports.run = async(client, msg, [user, ...reason]) => {
     var embed = new client.methods.Embed()
-        .setTitle('Warning: ' + user.tag)
-        .addField('Test', 'Testing')
+        .setTitle('Warning')
+        .addField('Member', user.tag)
+        .addField('Reason', reason)
+        .setFooter(msg.author.tag, msg.author.displayAvatarURL({format: 'jpg', size: 256}))
     return msg.channel.send({embed})
 }
 
