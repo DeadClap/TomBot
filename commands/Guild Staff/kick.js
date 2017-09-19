@@ -12,5 +12,5 @@ exports.help = {
     name: "kick",
     description: "Allows you no kick a guild member",
     usage: "<user:member> [reason:str] [...]",
-    usageDelim: ""
+    usageDelim: " "
 };
