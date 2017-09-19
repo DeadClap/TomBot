@@ -1,4 +1,5 @@
 exports.run = async (client, msg, [user, ...reason]) => {
+    console.log(user)
     var embed = new client.methods.Embed()
         .setColor(client.funcs.hex())
         .setTitle('Warning')
