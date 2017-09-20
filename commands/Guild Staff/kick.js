@@ -1,5 +1,6 @@
 exports.run = async(client,msg, [dry ,user, ...reason]) => {
     if (!client.funcs.many.kickable(client,msg, msg.member, user, msg.guild)) return msg.channel.send('Sorry but you can not kick this person!',{reply:msg.author.id})
+    if (!client.funcs.many.kickable(client,msg, msg.guild.member(client.user), user, msg.guild)) return msg.channel.send('Sorry but I can not kick this person!',{reply:msg.author.id})
     if(!dry) {
         return msg.channel.send(`${user.user.tag} has been kicked sucessfully!`) && user.kick(`${msg.author.tag} - ${reason.join(' ')}`)
     } else return msg.channel.send(`${user.user.tag} would have been kicked sucessfully!`)
