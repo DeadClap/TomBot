@@ -1,4 +1,5 @@
 exports.run = async(client,msg, [dry ,user, ...reason]) => {
+    if (!msg.guild.member(client.user).hasPermission(2)) return msg.channel.send('I do not have the permission \`KICK_MEMBERS\`')
     var embed = new client.methods.Embed()
         .setColor(client.funcs.hex())
         .setTitle('Kick')
@@ -33,7 +34,7 @@ exports.conf = {
     runIn: ["text"],
     aliases: [],
     permLevel: 2,
-    botPerms: ["KICK_MEMBERS"],
+    botPerms: [],
 };
 exports.help = {
     name: "kick",
