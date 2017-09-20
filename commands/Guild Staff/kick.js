@@ -19,7 +19,7 @@ exports.run = async(client,msg, [dry ,user, ...reason]) => {
         .setColor(client.funcs.hex())        
     if (!client.funcs.many.kickable(client,msg, msg.member, user, msg.guild)) return msg.channel.send('Sorry but you can not kick this person!',{reply:msg.author.id})
     if (!client.funcs.many.kickable(client,msg, msg.guild.member(client.user), user, msg.guild)) return msg.channel.send('Sorry but I can not kick this person!',{reply:msg.author.id})
-    if (!reason) return msg.channel.send(`\`reason is a required argument\``)
+    if (!reason[0]) return msg.channel.send(`\`reason is a required argument\``)
     
     if (!dry) {
         if (!msg.guild.settings.modlogs) {
