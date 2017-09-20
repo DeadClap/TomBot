@@ -21,9 +21,9 @@ exports.run = async(client,msg, [dry ,user, ...reason]) => {
     
     if (!dry) {
         if (!msg.guild.settings.modlogs) {
-            user.send({embed: embed2}) && user.kick(`${msg.author.tag} - ${reason.join(' ')}`) && msg.channel.send({embed: embed3})
+            user.send({embed: embed2}).catch(e => console.log(e)) && user.kick(`${msg.author.tag} - ${reason.join(' ')}`).catch(e => console.log(e)) && msg.channel.send({embed: embed3}).catch(e => console.log(e))
         } else if (msg.guild.settings.modlogs) {
-            user.send({embed: embed2}) && user.kick(`${msg.author.tag} - ${reason.join(' ')}`) && msg.channel.send({embed: embed3}) && msg.guild.channels.get(msg.guild.settings.modlogs).send({embed})
+            user.send({embed: embed2}).catch(e => console.log(e)) && user.kick(`${msg.author.tag} - ${reason.join(' ')}`).catch(e => console.log(e)) && msg.channel.send({embed: embed3}).catch(e => console.log(e)) && msg.guild.channels.get(msg.guild.settings.modlogs).send({embed}).catch(e => console.log(e))
         }
     } else return msg.channel.send({embed: embed4})
     
