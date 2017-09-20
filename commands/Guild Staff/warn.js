@@ -1,5 +1,6 @@
 exports.run = async(client, msg, [user, ...reason]) => {
     if (user === msg.author) return msg.reply('You cannot warn youself.') && msg.delete()
+    
     var embed = new client.methods.Embed()
         .setColor(client.funcs.hex())
         .setTitle('Warning')
@@ -21,7 +22,9 @@ exports.run = async(client, msg, [user, ...reason]) => {
             .send({ embed })
             .catch(e => msg.reply(`Insufficient modlogs permissions.`))
         return msg.delete() && msg.channel.send({ embed: embed3 })
-    } else return msg.channel.send(`Failed: Guild doesn't have a modlogs set in the config.`)
+    } else if (!msg.guild.settings.modlogs) {
+        return msg.channel.send(`Failed: Guild doesn't have a modlogs set in the config.`)
+    } else if (!msg.guild.channels.get(msg.guild.settings.modlogs).permissionsFor(client.user).has(19456)) return msg.channel.send('Insufficient Perms in modlog')
 }
 exports.conf = {
     enabled: true,
@@ -35,6 +38,6 @@ exports.conf = {
 exports.help = {
     name: 'warn',
     description: 'Allows guild staff to warn a user for misconduct.',
-    usage: '<user:mention> <reason:str> [...]',
+    usage: '<user:mention> <reason:str> <...>',
     usageDelim: ' '
 }
