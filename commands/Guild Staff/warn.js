@@ -1,6 +1,6 @@
 exports.run = async(client, msg, [user, ...reason]) => {
     if (user === msg.author) return msg.reply('You cannot warn youself.') && msg.delete()
-    
+    if (reason)
     var embed = new client.methods.Embed()
         .setColor(client.funcs.hex())
         .setTitle('Warning')
@@ -38,6 +38,6 @@ exports.conf = {
 exports.help = {
     name: 'warn',
     description: 'Allows guild staff to warn a user for misconduct.',
-    usage: '<user:mention> <reason:str> <...>',
+    usage: '<user:mention> <reason:str> [...]',
     usageDelim: ' '
 }

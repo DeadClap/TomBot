@@ -39,6 +39,6 @@ exports.conf = {
 exports.help = {
     name: "kick",
     description: "Allows you no kick a guild member",
-    usage: "[-t:literal] <user:member> [reason:str] [...]",
+    usage: "[-t:literal] <user:member> <reason:str> [...]",
     usageDelim: " "
 };
