@@ -22,7 +22,7 @@ exports.run = async(client,msg, [dry ,user, ...reason]) => {
     if (!dry) {
         if (!msg.guild.settings.modlogs) {
             user.send({embed: embed2}) && user.kick(`${msg.author.tag} - ${reason.join(' ')}`) && msg.channel.send({embed: embed3})
-        } else if (!msg.guild.settings.modlogs) {
+        } else if (msg.guild.settings.modlogs) {
             user.send({embed: embed2}) && user.kick(`${msg.author.tag} - ${reason.join(' ')}`) && msg.channel.send({embed: embed3}) && msg.guild.channels.get(msg.guild.settings.modlogs).send({embed})
         }
     } else return msg.channel.send({embed: embed4})
