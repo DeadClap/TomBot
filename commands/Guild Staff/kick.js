@@ -33,7 +33,7 @@ exports.conf = {
     runIn: ["text"],
     aliases: [],
     permLevel: 2,
-    botPerms: [],
+    botPerms: ["KICK_MEMBERS"],
 };
 exports.help = {
     name: "kick",
