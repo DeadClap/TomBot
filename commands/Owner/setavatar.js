@@ -1,5 +1,8 @@
 exports.run = async(client, msg, [link]) => {
-    msg.reply('indev')
+    var embed = new client.methods.Embed()
+    .setImage(`${link}`)
+    client.user.setAvatar(`${link}`)
+    return msg.channel.send({embed}) && msg.delete()
 }
 exports.conf = {
     enabled: true,
