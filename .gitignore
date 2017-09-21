@@ -33,3 +33,4 @@ package-lock.json
 .vscode/tasks.json
 bot_logins.json
 .env
+test.js

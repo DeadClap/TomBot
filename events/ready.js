@@ -11,7 +11,7 @@ exports.run = (client) => {
     var games = [`with ${client.users.size} users on ${client.guilds.size} servers`, `\@${client.user.tag} help`, `https://discord.gg/mDb2CBx`]
     var i = 0
     setInterval(() => {
-        client.emit('log', 'Game: ' + client.user.presence.activity.name + " " + i)
+        client.emit('log', 'Old Game: ' + client.user.presence.activity.name + '\nNew Game: ' + games[i] + " " + i)
         client.user.setPresence({
             status: "online",
             activity: {

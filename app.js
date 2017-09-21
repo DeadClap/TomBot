@@ -3,6 +3,7 @@ const {
   PermLevels
 } = require('komada');
 
+var prefix = "t."
 var permStructure = new PermLevels()
   .addLevel(0, false, () => true)
   .addLevel(2, false, (client, msg) => {
@@ -22,7 +23,7 @@ var permStructure = new PermLevels()
 
 const tomBot = new Client({
   ownerID: "195223544186142727",
-  prefix: "t.",
+  prefix,
   clientOptions: {
     fetchAllMembers: true,
   },
@@ -34,5 +35,5 @@ const tomBot = new Client({
   extraCFG: require('./extraCfg.json'),
   debug: true
 });
-
-tomBot.login(require('../bot_logins.json').Tom)
+var token = require('../bot_logins.json').Tom;
+tomBot.login(token)
