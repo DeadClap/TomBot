@@ -1,6 +1,7 @@
 exports.run = async(client,msg, [user, ...reason]) => {
     
-    var modlog = msg.guild.settings.modlogs ? msg.guild.settings.modlogs : null
+    var modlogid = msg.guild.settings.modlogs ? msg.guild.settings.modlogs : null
+    var modlog = msg.guild.channels.get(modlogid) ? msg.guild.settings.modlogs : null
     
     
     
@@ -29,11 +30,14 @@ exports.run = async(client,msg, [user, ...reason]) => {
     if (check === "Error: Bot Missing Kick Permission") return msg.channel.send('I do not have permission kick to users from this server!', {reply: msg.author.id})
     if (check === "Error: Guild Owner") return msg.channel.send('You cannot kick the guild owner!', {reply: msg.author.id})
     if (check === "Error: Self Target") return msg.channel.send('You cannot kick yourself!', {reply: msg.author.id})
+    if (check === "Error: Bot Role Equal With Target") return msg.channel.send('I have permission, but I am not above the user!', {reply: msg.author.id})
     if (check === "Error: Bot Role Lower Than Target") return msg.channel.send('I have permission, but I am not above the user!', {reply: msg.author.id})
     if (check === false) return msg.channel.send('You have permission, but you are not above the user!', {reply: msg.author.id})
     if (check === true) {
         if (modlog !== null) {
-            return msg.channel.send(smsg) && modlog.send(modmsg) && user.user.send(umsg) && user.kick(msg.author.tag + ' - ' + reason.join(' '))
+            return msg.channel.send(smsg).catch(console.log) && modlog.send(modmsg).catch(console.log) && user.user.send(umsg).catch(console.log) && user.kick(msg.author.tag + ' - ' + reason.join(' '))
+        } else if (modlog === null) {
+            return msg.channel.send(smsg).catch(console.log) && user.user.send(umsg).catch(console.log) && user.kick(msg.author.tag + ' - ' + reason.join(' '))
         }
     }
     

@@ -8,6 +8,7 @@ exports.kickable = (client, msg, user1, user2, guild) => {
    if (user2.id === client.user.id) return "Error: Bot Self Target"
    if (user1.id === user2.id) return "Error: Self Target"
    if (user2.id === guild.owner.id) return "Error: Guild Owner"
+   if (guild.member(client.user).highestRole.position === pos2) return "Error: Bot Role Equal With Target"
    if (guild.member(client.user).highestRole.position < pos2) return "Error: Bot Role Lower Than Target"
    return pos1 > pos2
 
