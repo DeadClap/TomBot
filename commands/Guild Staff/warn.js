@@ -23,7 +23,7 @@ exports.run = async(client, msg, [user, ...reason]) => {
             .catch(e => msg.reply(`Insufficient modlogs permissions.`))
         return msg.delete() && msg.channel.send({ embed: embed3 })
     } else if (!msg.guild.settings.modlogs) {
-        return msg.channel.send(`Failed: Guild doesn't have a modlogs set in the config.`)
+        return msg.channel.send(`\`Failed:\` Guild doesn't have a modlogs set in the config.`)
     } else if (!msg.guild.channels.get(msg.guild.settings.modlogs).permissionsFor(client.user).has(19456)) return msg.channel.send('Insufficient Perms in modlog')
 }
 exports.conf = {

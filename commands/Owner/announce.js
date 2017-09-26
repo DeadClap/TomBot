@@ -1,14 +1,11 @@
 exports.run = async(client, msg, [...ann]) => {
-    if (!client.config.debug) {
-        client.guilds.forEach(g => {
-            client.funcs.announce(client, g, ann)
-        })
-    } else if (client.config.debug) {
-        client.guilds.forEach(g => {
-            if (!client.funcs.debugServer(client, g)) return
+    client.guilds.forEach(g => {
+        if (client.config.debug && client.funcs.debugServer(client, g)) {
             return client.funcs.announce(client, g, ann)
-        })
-    }
+        } else if (client.config.debug && !client.funcs.debugServer(client, g)) {
+            return
+        } else if (!client.config.debug) return client.funcs.announce(client, g, ann)
+    })
 }
 exports.conf = {
     enabled: true,

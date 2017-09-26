@@ -12,13 +12,14 @@ exports.run = async(client, msg, [user]) => {
             size: 256
         }))
         .addField('User NAME#TAG', `${user.user.tag}`, true)
-    if (user.id === client.owner.id) embed.addField('Is Developer', "Yes", true)
-    if (client.config.extraCFG.owners.includes(user.id)) embed.addField('Is Owner', 'Yes', true)
+    if (user.id === client.owner.id) embed.addField('Is bot developer', "Yes", true)
+    if (client.config.extraCFG.owners.includes(user.id)) embed.addField('Is bot owner', 'Yes', true)
     embed.addField('User ID', user.id)
         .addField('Roles', roleString)
         .addField("Kick or Bannable", client.funcs.many.kickable(client,msg, msg.member, msg.guild.member(user.id), msg.guild))
         .addField('Joined Discord', user.user.createdAt.toDateString(), true)
         .addField('Joined The Server', user.joinedAt.toDateString(), true)
+        .setColor(user.highestRole.hexColor)
     return msg.channel.send({
         embed,
         disableEveryone: true
