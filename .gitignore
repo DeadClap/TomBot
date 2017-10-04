@@ -34,3 +34,4 @@ package-lock.json
 bot_logins.json
 .env
 test.js
+bwd/guilds_Schema.json
