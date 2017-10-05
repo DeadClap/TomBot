@@ -9,7 +9,8 @@ exports.run = async(client,msg, [user, ...reason]) => {
     if (check === "Error: Bot Role Lower Than Target") return msg.channel.send('I have permission, but I am not above the user!', {reply: msg.author.id})
     if (check === false) return msg.channel.send('You have permission, but you are not above the user!', {reply: msg.author.id})
     if (check === true) {
-        addCase()
+        client.funcs.addCase(client, msg.guild, msg.author, user.user, 'Kick', reason)
+        
     }
     
 }

@@ -1,5 +1,5 @@
 exports.run = (client, guild) => {
-    client.settings.guilds.create(guild.id)
+    client.settings.guilds.create(guild)
     // client.user.setGame(`with ${client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users on ${client.guilds.size} servers`)
     var uTb = client.funcs.usersToBots(guild.members)
     var embed = new client.methods.Embed()
@@ -9,9 +9,5 @@ exports.run = (client, guild) => {
         .addField('Bots', uTb[1], true)
         .setColor(0x410074)
         .setThumbnail(`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.jpg`)
-    client.guilds.get('332178051154706432')
-        .channels.get('340864447037833226')
-        .send({
-            embed
-        })
+    client.funcs.addCase.sl(client, embed)
 }
