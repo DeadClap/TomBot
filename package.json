@@ -7,7 +7,7 @@
   "scripts": {
     "prestart": "npm i -g pm2",
     "start": "pm2 start app.js --name TomBot",
-    "test": "nodemon test.js"
+    "test": "pm2 start test.js"
   },
   "dependencies": {
     "chalk": "^2.1.0",
