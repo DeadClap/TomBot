@@ -1,4 +1,4 @@
-exports.ml = (client, guild, author, offender, title, reason) => {
+exports.ml = (client, msg, guild, author, offender, title, reason) => {
     var embed = new client.methods.Embed()
     .addField('Action', title)    
     .addField('Reason', reason.join(' '))
@@ -6,12 +6,16 @@ exports.ml = (client, guild, author, offender, title, reason) => {
     .addField('Staff Member', author.tag, true)
     .setColor(client.funcs.hex())
     
-    var channel = guild.settings.moglogs !== null ? guild.channels.get(guild.settings.modlogs) : null
-    if (channel !== null) return channel.send({embed})
-    if (channel === null) return "No channel!"
+    var channel = guild.channels.get(guild.settings.modlogs) || undefined
+    
+    if (channel) return channel.send({embed}) && true
+    if (!channel) return false
 }
 
 exports.sl = (client, embed) => {
-    var channel = client.channels.get('365497316494409749')
+    if (client.config.beta) {
+        var channel = client.channels.get('365999171934748674')
+    } else var channel = client.channels.get('340864447037833226')
+
     return channel.send({embed})
 }
