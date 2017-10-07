@@ -1,9 +1,9 @@
 exports.run = async(client, msg) => {
-    let link = await client.generateInvite(-1)
+    if (!client.funcs.clientHasPerm.channel(client, msg.channel, 19456)) return
     var m = [
             "So you want to invite me?",
             "Glad to hear it. Hope you enjoy my services.",
-            `[Click here](${link}) to invite me!`
+            `[Click here](${client.inviteLink}) to invite me!`
         ]
     var embed = new client.methods.Embed()
         .setTitle('TomBot invitation')
