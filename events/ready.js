@@ -1,13 +1,18 @@
-exports.run = (client) => {
+exports.run = async (client) => {
+
+    let link = await client.generateInvite(-1)
+    client.emit('log', `Ready! \nInvite Link: ${link}`)
+    client.inviteLink = link
     client.user.setPresence({
         activity: {
             name: `\@${client.user.tag} help`,
             type: 0
         }
     })
-    var games = [`with ${client.users.size} users on ${client.guilds.size} servers`, `\@${client.user.tag} help`, `https://discord.gg/mDb2CBx`]
+    
     var i = 0
     setInterval(() => {
+        var games = [`with ${client.users.size} users on ${client.guilds.size} servers`, `\@${client.user.tag} help`, `https://discord.gg/mDb2CBx`]
         client.emit('log', 'Old Game: ' + client.user.presence.activity.name + ' | New Game: ' + games[i] + " " + i)
         client.user.setStatus('online')
         client.user.setPresence({
