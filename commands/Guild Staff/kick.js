@@ -1,17 +1,21 @@
 exports.run = async(client,msg, [user, ...reason]) => {
     var addCase = client.funcs.addCase
     var check = client.funcs.many.kickable(client,msg,msg.member,user,msg.guild) 
-    if (check === "Error: User Missing Kick Permission") return msg.channel.send('You do not have permission to users from this server!', {reply: msg.author.id})
-    if (check === "Error: Bot Missing Kick Permission") return msg.channel.send('I do not have permission kick to users from this server!', {reply: msg.author.id})
-    if (check === "Error: Guild Owner") return msg.channel.send('You cannot kick the guild owner!', {reply: msg.author.id})
-    if (check === "Error: Self Target") return msg.channel.send('You cannot kick yourself!', {reply: msg.author.id})
-    if (check === "Error: Bot Role Equal With Target") return msg.channel.send('I have permission, but I am not above the user!', {reply: msg.author.id})
-    if (check === "Error: Bot Role Lower Than Target") return msg.channel.send('I have permission, but I am not above the user!', {reply: msg.author.id})
-    if (check === false) return msg.channel.send('You have permission, but you are not above the user!', {reply: msg.author.id})
+    
     if (check === true) {
-        client.funcs.addCase(client, msg.guild, msg.author, user.user, 'Kick', reason)
-        
-    }
+        let test = addCase.ml(client, msg, msg.guild, msg.author, user.user, 'Kick', reason)
+            if (test) {
+                return user.user.send('You have been kicked from: ' + msg.guild.name + '\nFor: ' + reason.join(' ')).catch(msg.reply('I cannot inform the user.')) && user.kick(`${msg.author.tag} has kicked this user. Reason: ${reason.join(' ')}`) && msg.channel.send({embed: {
+                    title: `User Kicked: ${user.user.tag}`
+                }})
+            } else if (!test) {
+                return user.user.send('You have been kicked from: ' + msg.guild.name + '\nFor: ' + reason.join(' ')).catch(msg.reply('I cannot inform the user.')) && user.kick(`${msg.author.tag} has kicked this user. Reason: ${reason.join(' ')}`) && msg.reply('There will not be a modlog entry created for this action\nThere is no modlog channel.' + `\nPlease set one with \`${msg.guild.settings.prefix}conf set modlogs #channel\``) && msg.channel.send({embed: {
+                    title: `User Kicked: ${user.user.tag}`
+                }})
+            }
+    } else if (check === false) {
+        return msg.channel.send('You have permission, but you are not above the user!', {reply: msg.author.id})
+    } else return
     
 }
 exports.conf = {
