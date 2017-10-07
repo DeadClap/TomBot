@@ -6,7 +6,9 @@ exports.conf = {
 
 exports.run = (client, msg, cmd) => {
     if (msg.channel.type !== 'dm') return;
-    var channel = client.channels.get('363809453260144650');
+    if (client.config.beta) {
+        var channel = client.channels.get('363829630207131650');
+    } else var channel = client.channels.get('363809453260144650')
     var commands = client.commands.keyArray()
     var aliases = client.aliases.keyArray()
     var wordArray = msg.content.split(' ');
