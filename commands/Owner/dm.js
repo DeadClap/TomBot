@@ -1,6 +1,6 @@
 exports.run = async (client, msg, [user, ...message]) => {
-  if (msg.author.id === client.owner.id) return user.send('\*\*DEV\*\* ' + msg.author.tag + ':\n' + message.join(' '))
-  if (client.config.extraCFG.owners.includes(msg.author.id)) return user.send('\*\*OWNER\*\* ' + msg.author.tag + ':\n' + message.join(' '))
+  if (msg.author.id === client.owner.id) return user.send('\*\*DEV\*\* ' + msg.author.tag + ':\n' + message.join(' ')) && msg.channel.send('\*\*DEV\*\* ' + msg.author.tag + ':\n' + message.join(' ')) && msg.delete()
+  if (client.config.extraCFG.owners.includes(msg.author.id)) return user.send('\*\*OWNER\*\* ' + msg.author.tag + ':\n' + message.join(' ')) && msg.channel.send('\*\*OWNER\*\* ' + msg.author.tag + ':\n' + message.join(' ')) && msg.delete()
 }
 
 
