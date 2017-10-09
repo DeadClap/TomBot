@@ -14,14 +14,16 @@ exports.run = (client, msg, cmd) => {
     var wordArray = msg.content.split(' ');
     var one = wordArray[0].replace(client.settings.guilds.schema.prefix.default, '')
     if (commands.includes(one) || aliases.includes(one)) return
-    client.emit('log', msg.author.tag + ' DMed: ' + msg.cleanContent)
+    
 
     var embed = new client.methods.Embed()
     .setAuthor(msg.author.tag + ` (${msg.author.id}) sent:`, msg.author.displayAvatarURL({format: 'png', size: 256}))
     .setDescription(msg.cleanContent)
     
-    if (msg.attachments.size > 0) msg.attachments.forEach(a => {
+    if (msg.attachments.size > 0) {msg.attachments.forEach(a => {
         channel.sendFile(a.url)
-    })
+        client.emit('log', msg.author.tag + ' DMed: ' + msg.cleanContent + ' (WITH IMAGE(s))')
+    })} else client.emit('log', msg.author.tag + ' DMed: ' + msg.cleanContent)
     channel.send({embed})
+    
 }
