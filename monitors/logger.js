@@ -6,6 +6,7 @@ exports.conf = {
 
 exports.run = (client, msg, cmd) => {
     if (msg.channel.type !== 'dm') return;
+    
     if (client.config.beta) {
         var channel = client.channels.get('363829630207131650');
     } else var channel = client.channels.get('363809453260144650')
@@ -13,8 +14,8 @@ exports.run = (client, msg, cmd) => {
     var aliases = client.aliases.keyArray()
     var wordArray = msg.content.split(' ');
     var one = wordArray[0].replace(client.settings.guilds.schema.prefix.default, '')
-    if (commands.includes(one) || aliases.includes(one)) return
-    
+    // if (commands.includes(one) || aliases.includes(one)) return
+    if (!commands.includes(one) || !aliases.includes(one)) return msg.reply('DM LOGGING disabled')
 
     var embed = new client.methods.Embed()
     .setAuthor(msg.author.tag + ` (${msg.author.id}) sent:`, msg.author.displayAvatarURL({format: 'png', size: 256}))
