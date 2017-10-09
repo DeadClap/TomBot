@@ -17,9 +17,11 @@ exports.run = (client, msg, cmd) => {
     client.emit('log', msg.author.tag + ' DMed: ' + msg.cleanContent)
 
     var embed = new client.methods.Embed()
-    .setAuthor(msg.author.tag + ` (${msg.author.id})`, msg.author.displayAvatarURL({format: 'png', size: 256}))
+    .setAuthor(msg.author.tag + ` (${msg.author.id}) sent:`, msg.author.displayAvatarURL({format: 'png', size: 256}))
     .setDescription(msg.cleanContent)
     
-
+    if (msg.attachments.size > 0) msg.attachments.forEach(a => {
+        channel.sendFile(a.url)
+    })
     channel.send({embed})
 }
