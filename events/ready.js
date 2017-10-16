@@ -9,7 +9,7 @@ exports.run = async (client) => {
             type: 0
         }
     })
-    
+    // client.channels.get('363829630207131650').send('<@227110473466773504>, ' + client.ping)
     var i = 0
     setInterval(() => {
         var games = [`with ${client.users.size} users on ${client.guilds.size} servers`, `\@${client.user.tag} help`, `https://discord.gg/mDb2CBx`]
