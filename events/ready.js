@@ -1,7 +1,7 @@
 exports.run = async (client) => {
 
     let link = await client.generateInvite(-1)
-    client.emit('log', `Ready! \nInvite Link: ${link}`)
+    client.emit('log', `Ready! \nInvite Link: ${link}\nLogged in as: ${client.user.tag}`)
     client.inviteLink = link
     client.user.setPresence({
         activity: {

@@ -7,7 +7,9 @@
   "scripts": {
     "prestart": "npm i -g pm2",
     "start": "pm2 start app.js --name TomBot",
-    "test": "pm2 start test.js"
+    "test": "pm2 start test.js --name TomBotBeta",
+    "rs": "pm2 restart TomBot",
+    "trs": "pm2 restart TomBotBeta"
   },
   "dependencies": {
     "chalk": "^2.1.0",
