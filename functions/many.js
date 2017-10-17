@@ -13,3 +13,11 @@ exports.kickable = (client, msg, user1, user2, guild) => {
 
 }
 
+
+exports.botStaff = (client, user) =>{
+    if (client.config.extraCFG.owners.includes(user.id)) return "Owner"
+    if (user.id = client.owner.id) return "Dev"
+    
+    return false
+}
+
