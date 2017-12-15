@@ -1,25 +1,26 @@
 {
-  "name": "tom-bot",
-  "version": "0.0.1",
-  "description": "Bot being created for Tomas",
-  "author": "Chris Welch",
+  "name": "tombot",
+  "version": "2.0.0",
+  "description": "First Recode of Tombot",
   "main": "app.js",
   "scripts": {
-    "prestart": "npm i -g pm2",
-    "start": "pm2 start app.js --name TomBot",
-    "test": "pm2 start test.js --name TomBotBeta",
-    "rs": "pm2 restart TomBot",
-    "trs": "pm2 restart TomBotBeta"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeadClap/TomBot.git"
+  },
+  "author": "Chris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeadClap/TomBot/issues"
+  },
+  "homepage": "https://github.com/DeadClap/TomBot#readme",
   "dependencies": {
-    "chalk": "^2.1.0",
     "discord.js": "github:hydrabolt/discord.js",
     "dotenv": "^4.0.0",
-    "fs-nextra": "^0.2.1",
-    "ghissues": "^1.1.3",
-    "github-create-issue": "^2.0.0",
     "komada": "github:dirigeants/komada",
-    "npmlog": "^4.1.2",
-    "sqlite": "^2.8.0"
+    "moment": "^2.19.4",
+    "moment-timezone": "^0.5.14"
   }
 }
