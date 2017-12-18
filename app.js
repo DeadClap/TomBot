@@ -7,6 +7,7 @@ const bot = new Client({
       fetchAllMembers: false,
     },
     cmdLogging: true,
+    provider: { engine: "sqlite" }
 });
 
 bot.login(process.env.DTOKEN);
