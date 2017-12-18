@@ -1,3 +1,3 @@
 exports.run = (client) => {
-    client.funcs.log('Testing', 'error')
+    client.log = client.console.log
 }
