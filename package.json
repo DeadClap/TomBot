@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DeadClap/TomBot#readme",
   "dependencies": {
+    "chalk": "^2.3.0",
     "discord.js": "github:hydrabolt/discord.js",
     "dotenv": "^4.0.0",
     "komada": "github:dirigeants/komada",
