@@ -19,7 +19,7 @@
     "ghissues": "^1.1.3",
     "github-create-issue": "^2.0.0",
     "komada": "github:dirigeants/komada",
-    "npmlog": "^4.1.2",
+    "npmlog": "^5.0.0",
     "sqlite": "^2.8.0"
   }
 }
