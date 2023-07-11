@@ -20,6 +20,6 @@
     "github-create-issue": "^2.0.0",
     "komada": "github:dirigeants/komada",
     "npmlog": "^7.0.0",
-    "sqlite": "^4.0.0"
+    "sqlite": "^5.0.0"
   }
 }
